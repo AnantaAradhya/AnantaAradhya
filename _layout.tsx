@@ -25,30 +25,20 @@ export default function App() {
   }, [canGoBack]);
 
   useEffect(() => {
-    const subscription = BackHandler.addEventListener(
-      "hardwareBackPress",
-      handleBackPress
-    );
-    return () => {
-      subscription.remove();
-    };
+    // const subscription = BackHandler.addEventListener("hardwareBackPress", handleBackPress);
+    // return () => {
+    //   subscription.remove();
+    // };
   }, [handleBackPress]);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, paddingTop: 20 }}>
       <WebView
-        ref={webviewRef}
-        source={{ uri: "https://anantaradhya.com" }}
-        onNavigationStateChange={onNavigationStateChange}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        scalesPageToFit={false}
-        startInLoadingState={true}
-        overScrollMode="never"
-        nestedScrollEnabled={true}
-        decelerationRate="normal"
-        scrollEnabled={true}
-      />
+      style={{ flex: 1, paddingTop: 20 }}
+      ref={webviewRef}
+      source={{ uri: "https://anantaradhya.com" }}
+      onNavigationStateChange={onNavigationStateChange}
+    />
     </SafeAreaView>
   );
 }
